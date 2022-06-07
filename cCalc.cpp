@@ -1,4 +1,5 @@
 #include "cCalc.h"
+
 wxIMPLEMENT_APP(cCalc);
 
 cCalc::cCalc()
