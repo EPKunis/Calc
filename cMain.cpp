@@ -79,6 +79,9 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 	int id = (evt.GetId());
 	std::string tmp = "";
 
+
+
+
 	//numbers
 	if (id < 10)
 	{
@@ -89,52 +92,15 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 	//for the math part of it all
 	if (id >= 10 && id < 15)
 	{
-		if (id == 10)
-		{
-			char sign = '+';
-			tmp.push_back(sign);
-			txt->AppendText(tmp);
-		}
+		wxButton* tst = dynamic_cast<wxButton*>(evt.GetEventObject());
 
-		if (id == 11)
-		{
-			char sign = '-';
-			tmp.push_back(sign);
-			txt->AppendText(tmp);
-		}
-
-		if (id == 12)
-		{
-			char sign = '/';
-			tmp.push_back(sign);
-			txt->AppendText(tmp);
-		}
-
-		if (id == 13)
-		{
-			char sign = '*';
-			tmp.push_back(sign);
-			txt->AppendText(tmp);
-		}
-
-		if (id == 14)
-		{
-			char sign = '=';
-			tmp.push_back(sign);
-			txt->AppendText(tmp);
-		}
-
-		//testign ways to get the sign without all the if statements above
-		/*std::string test = "";
-
-		test = evt.GetString();
-		tmp += test;
-		txt->AppendText(tmp);*/
+		tmp += tst->GetLabel();
+		txt->AppendText(tmp);
 	}
 
+	//Clear the window
 	if (id == 15)
 	{
-		//Clear the window
 		txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
 	}
 
