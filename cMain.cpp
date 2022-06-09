@@ -79,9 +79,6 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 	int id = (evt.GetId());
 	std::string tmp = "";
 
-
-
-
 	//numbers
 	if (id < 10)
 	{
