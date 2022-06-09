@@ -36,6 +36,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	Ones_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
 	Two_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
 
+
 	/*Two_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
 	Two_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
 	Two_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
@@ -79,4 +80,5 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 		txt->AppendText(tmp);
 	}
 
+	//FOR SIGNS DO PUSH BACK AND NOT APPEND
 }

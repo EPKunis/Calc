@@ -7,6 +7,8 @@ public:
 	~cMain();
 
 public:
+
+	
 	wxTextCtrl* txt = nullptr;
 
 	wxButton* Ones_btn = nullptr;
@@ -30,9 +32,8 @@ public:
 	wxButton* Hex_btn = nullptr;
 	wxButton* Dec_btn = nullptr;
 
-
-	
 	void OnButtonClicked(wxCommandEvent& evt);
+
 	wxDECLARE_EVENT_TABLE();
 };
 
