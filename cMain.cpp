@@ -135,6 +135,7 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 	if (id == 15)
 	{
 		//Clear the window
+		txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
 	}
 
 	//for the mods
