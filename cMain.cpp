@@ -41,6 +41,8 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	Bin_btn = new wxButton(this, 17, "BIN", wxPoint(60, 380), wxSize(50, 50));
 	Hex_btn = new wxButton(this, 18, "HEX", wxPoint(110, 380), wxSize(50, 50));
 	Dec_btn = new wxButton(this, 19, "DEC", wxPoint(10, 380), wxSize(50, 50));
+
+	//Clear_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
 }
 
 cMain::~cMain()
@@ -55,7 +57,16 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 
 	wxButton* tst = dynamic_cast<wxButton*>(evt.GetEventObject());
 
-	tmp += tst->GetLabel();
-	txt->AppendText(tmp);
+	if (tst == Clear_btn)
+	{
+		txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
+	}
+	else
+	{
+		tmp += tst->GetLabel();
+		txt->AppendText(tmp);
+	}
+
+
 
 }
