@@ -1,7 +1,7 @@
 #include "cMain.h"
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
 
-EVT_BUTTON(10001, OnButtonClicked)
+EVT_BUTTON(wxID_ANY, OnButtonClicked)
 
 wxEND_EVENT_TABLE()
 
@@ -41,32 +41,6 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	Bin_btn = new wxButton(this, 17, "BIN", wxPoint(60, 380), wxSize(50, 50));
 	Hex_btn = new wxButton(this, 18, "HEX", wxPoint(110, 380), wxSize(50, 50));
 	Dec_btn = new wxButton(this, 19, "DEC", wxPoint(10, 380), wxSize(50, 50));
-
-	//number binds
-	Zero_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Ones_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Two_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Three_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Four_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Five_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Size_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Seven_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Eight_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Nine_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-
-	//other function Binds
-	Plus_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Minus_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Div_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Mult_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Equal_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Clear_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-
-	//Modes
-	Mod_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Hex_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Bin_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
-	Dec_btn->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &cMain::OnButtonClicked, this);
 }
 
 cMain::~cMain()
@@ -76,36 +50,12 @@ cMain::~cMain()
 
 void cMain::OnButtonClicked(wxCommandEvent& evt)
 {
-	int id = (evt.GetId());
+
 	std::string tmp = "";
 
-	//numbers
-	if (id < 10)
-	{
-		tmp += std::to_string(id);
-		txt->AppendText(tmp);
-	}
+	wxButton* tst = dynamic_cast<wxButton*>(evt.GetEventObject());
 
-	//for the math part of it all
-	if (id >= 10 && id < 15)
-	{
-		wxButton* tst = dynamic_cast<wxButton*>(evt.GetEventObject());
+	tmp += tst->GetLabel();
+	txt->AppendText(tmp);
 
-		tmp += tst->GetLabel();
-		txt->AppendText(tmp);
-	}
-
-	//Clear the window
-	if (id == 15)
-	{
-		txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
-	}
-
-	//for the mods
-	else
-	{
-
-	}
-
-	//FOR SIGNS DO PUSH BACK AND NOT APPEND
 }
