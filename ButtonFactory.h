@@ -12,27 +12,27 @@ public:
 	ButtonFactory(cMain* _tempView);
 	~ButtonFactory();
 
-	wxButton* ZeroButton();
-	wxButton* OneButton();
-	wxButton* TwoButton();
-	wxButton* ThreeButton();
-	wxButton* FourButton();
-	wxButton* FiveButton();
-	wxButton* SixButton();
-	wxButton* SevenButton();
-	wxButton* EightButton();
-	wxButton* NineButton();
-	wxButton* BinButton();
-	wxButton* HexButton();
-	wxButton* DecButton();
-	wxButton* AddButton();
-	wxButton* MinButton();
-	wxButton* MultButton();
-	wxButton* DivButton();
-	wxButton* ModButton();
-	wxButton* NegButton();
-	wxButton* ClearButton();
-	wxButton* EqualButton();
+	wxButton* Zero();
+	wxButton* One();
+	wxButton* Two();
+	wxButton* Three();
+	wxButton* Four();
+	wxButton* Five();
+	wxButton* Six();
+	wxButton* Seven();
+	wxButton* Eight();
+	wxButton* Nine();
+	wxButton* Binary();
+	wxButton* Hex();
+	wxButton* Decimal();
+	wxButton* Add();
+	wxButton* Minus();
+	wxButton* Multiply();
+	wxButton* Divide();
+	wxButton* Mod();
+	wxButton* Negative();
+	wxButton* Clear();
+	wxButton* Equal();
 
 };
 

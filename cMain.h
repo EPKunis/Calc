@@ -16,7 +16,7 @@ public:
 	wxButton* Three_btn = nullptr;
 	wxButton* Four_btn = nullptr;
 	wxButton* Five_btn = nullptr;
-	wxButton* Size_btn = nullptr;
+	wxButton* Six_btn = nullptr;
 	wxButton* Seven_btn = nullptr;
 	wxButton* Eight_btn = nullptr;
 	wxButton* Nine_btn = nullptr;

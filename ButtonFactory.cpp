@@ -10,126 +10,126 @@ ButtonFactory::~ButtonFactory()
 
 }
 
-wxButton* ButtonFactory:: ZeroButton()
+wxButton* ButtonFactory:: Zero()
 {
     wxButton* temp = new wxButton(Calc_frame, 0, "0", wxPoint(60, 320), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::OneButton()
+wxButton* ButtonFactory::One()
 {
     wxButton* temp = new wxButton(Calc_frame, 1, "1", wxPoint(10, 140), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::TwoButton()
+wxButton* ButtonFactory::Two()
 {
     wxButton* temp = new wxButton(Calc_frame, 2, "2", wxPoint(60, 140), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::ThreeButton()
+wxButton* ButtonFactory::Three()
 {
     wxButton* temp = new wxButton(Calc_frame, 3, "3", wxPoint(110, 140), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::FourButton()
+wxButton* ButtonFactory::Four()
 {
     wxButton* temp = new wxButton(Calc_frame, 4, "4", wxPoint(10, 200), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::FiveButton()
+wxButton* ButtonFactory::Five()
 {
     wxButton* temp = new wxButton(Calc_frame, 5, "5", wxPoint(60, 200), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::SixButton()
+wxButton* ButtonFactory::Six()
 {
     wxButton* temp = new wxButton(Calc_frame, 6, "6", wxPoint(110, 200), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::SevenButton()
+wxButton* ButtonFactory::Seven()
 {
     wxButton* temp = new wxButton(Calc_frame, 7, "7", wxPoint(10, 260), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::EightButton()
+wxButton* ButtonFactory::Eight()
 {
     wxButton* temp = new wxButton(Calc_frame, 8, "8", wxPoint(60, 260), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::NineButton()
+wxButton* ButtonFactory::Nine()
 {
     wxButton* temp = new wxButton(Calc_frame, 9, "9", wxPoint(110, 260), wxSize(50, 50));
     return temp;
 }
-wxButton* ButtonFactory::EqualButton()
+wxButton* ButtonFactory::Equal()
 {
     wxButton* temp = new wxButton(Calc_frame, 14, "=", wxPoint(160, 320), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::BinButton()
+wxButton* ButtonFactory::Binary()
 {
     wxButton* temp = new wxButton(Calc_frame, 17, "BIN", wxPoint(60, 380), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::HexButton()
+wxButton* ButtonFactory::Hex()
 {
     wxButton* temp = new wxButton(Calc_frame, 18, "HEX", wxPoint(110, 380), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::DecButton()
+wxButton* ButtonFactory::Decimal()
 {
     wxButton* temp = new wxButton(Calc_frame, 19, "DEC", wxPoint(10, 380), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::AddButton()
+wxButton* ButtonFactory::Add()
 {
     wxButton* temp = new wxButton(Calc_frame, 10, "+", wxPoint(160, 140), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::MinButton()
+wxButton* ButtonFactory::Minus()
 {
     wxButton* temp = new wxButton(Calc_frame, 11, "-", wxPoint(160, 200), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::MultButton()
+wxButton* ButtonFactory::Multiply()
 {
     wxButton* temp = new wxButton(Calc_frame, 13, "*", wxPoint(110, 320), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::DivButton()
+wxButton* ButtonFactory::Divide()
 {
     wxButton* temp = new wxButton(Calc_frame, 12, "/", wxPoint(160, 260), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::ModButton()
+wxButton* ButtonFactory::Mod()
 {
     wxButton* temp = new wxButton(Calc_frame, 16, "MOD", wxPoint(160, 380), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::NegButton()
+wxButton* ButtonFactory::Negative()
 {
     wxButton* temp = new wxButton(Calc_frame, 19, "+/-", wxPoint(10, 320), wxSize(50, 50));
     return temp;
 }
 
-wxButton* ButtonFactory::ClearButton()
+wxButton* ButtonFactory::Clear()
 {
     wxButton* temp = new wxButton(Calc_frame, 15, "Clear", wxPoint(10, 440), wxSize(200, 50));
     return temp;

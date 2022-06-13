@@ -13,59 +13,29 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	//txt window
 	txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
 
-	////row 1
-	//Ones_btn = new wxButton(this, 1, "1", wxPoint(10, 140), wxSize(50, 50));
-	//Two_btn = new wxButton(this, 2, "2", wxPoint(60, 140), wxSize(50, 50));
-	//Three_btn = new wxButton(this, 3, "3", wxPoint(110, 140), wxSize(50, 50));
-	//Plus_btn = new wxButton(this, 10, "+", wxPoint(160, 140), wxSize(50, 50));
-
-	////row2
-	//Four_btn = new wxButton(this, 4, "4", wxPoint(10, 200), wxSize(50, 50));
-	//Five_btn = new wxButton(this, 5, "5", wxPoint(60, 200), wxSize(50, 50));
-	//Size_btn = new wxButton(this, 6, "6", wxPoint(110, 200), wxSize(50, 50));
-	//Minus_btn = new wxButton(this, 11, "-", wxPoint(160, 200), wxSize(50, 50));
-
-	////row3
-	//Seven_btn = new wxButton(this, 7, "7", wxPoint(10, 260), wxSize(50, 50));
-	//Eight_btn = new wxButton(this, 8, "8", wxPoint(60, 260), wxSize(50, 50));
-	//Nine_btn = new wxButton(this, 9, "9", wxPoint(110, 260), wxSize(50, 50));
-	//Div_btn = new wxButton(this, 12, "/", wxPoint(160, 260), wxSize(50, 50));
-
-	////row4
-	//Zero_btn = new wxButton(this, 0, "0", wxPoint(60, 320), wxSize(50, 50));
-	//Equal_btn = new wxButton(this, 14, "=", wxPoint(160, 320), wxSize(50, 50));
-	//Clear_btn = new wxButton(this, 15, "C", wxPoint(10, 320), wxSize(50, 50));
-	//Mult_btn = new wxButton(this, 13, "*", wxPoint(110, 320), wxSize(50, 50));
-
-	////row5
-	//Mod_btn = new wxButton(this, 16, "MOD", wxPoint(160, 380), wxSize(50, 50));
-	//Bin_btn = new wxButton(this, 17, "BIN", wxPoint(60, 380), wxSize(50, 50));
-	//Hex_btn = new wxButton(this, 18, "HEX", wxPoint(110, 380), wxSize(50, 50));
-	//Dec_btn = new wxButton(this, 19, "DEC", wxPoint(10, 380), wxSize(50, 50));
-
 	ButtonFactory BF = ButtonFactory(this);
 
-	Ones_btn = BF.OneButton();
-	Two_btn = BF.TwoButton();
-	Three_btn = BF.ThreeButton();
-	Four_btn = BF.FourButton();
-	Five_btn = BF.FiveButton();
-	Size_btn = BF.SixButton();
-	Seven_btn = BF.SevenButton();
-	Eight_btn = BF.EightButton();
-	Nine_btn = BF.NineButton();
-	Zero_btn = BF.ZeroButton();
-	Plus_btn = BF.AddButton();
-	Minus_btn = BF.MinButton();
-	Mult_btn = BF.MultButton();
-	Div_btn = BF.DivButton();
-	Clear_btn = BF.ClearButton();
-	Mod_btn = BF.ModButton();
-	Bin_btn = BF.BinButton();
-	Hex_btn = BF.HexButton();
-	Dec_btn = BF.DecButton();
-	Equal_btn = BF.EqualButton();
-	Neg_btn = BF.NegButton();
+	Ones_btn = BF.One();
+	Two_btn = BF.Two();
+	Three_btn = BF.Three();
+	Four_btn = BF.Four();
+	Five_btn = BF.Five();
+	Six_btn = BF.Six();
+	Seven_btn = BF.Seven();
+	Eight_btn = BF.Eight();
+	Nine_btn = BF.Nine();
+	Zero_btn = BF.Zero();
+	Plus_btn = BF.Add();
+	Minus_btn = BF.Minus();
+	Mult_btn = BF.Multiply();
+	Div_btn = BF.Divide();
+	Clear_btn = BF.Clear();
+	Mod_btn = BF.Mod();
+	Bin_btn = BF.Binary();
+	Hex_btn = BF.Hex();
+	Dec_btn = BF.Decimal();
+	Equal_btn = BF.Equal();
+	Neg_btn = BF.Negative();
 
 }
 
