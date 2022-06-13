@@ -31,8 +31,7 @@ public:
 	wxButton* Bin_btn = nullptr;
 	wxButton* Hex_btn = nullptr;
 	wxButton* Dec_btn = nullptr;
-
-	wxButton* btn = nullptr;
+	wxButton* Neg_btn = nullptr;
 
 	void OnButtonClicked(wxCommandEvent& evt);
 
