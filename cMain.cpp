@@ -2,7 +2,7 @@
 #include "ButtonFactory.h"
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
 
-EVT_BUTTON(wxID_ANY,OnButtonClicked)
+EVT_BUTTON(wxID_ANY, OnButtonClicked)
 
 wxEND_EVENT_TABLE()
 
@@ -13,29 +13,40 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	//txt window
 	txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
 
-	ButtonFactory BF = ButtonFactory(this);
+	ButtonFactory BF = ButtonFactory();
 
-	Ones_btn = BF.One();
-	Two_btn = BF.Two();
-	Three_btn = BF.Three();
-	Four_btn = BF.Four();
-	Five_btn = BF.Five();
-	Six_btn = BF.Six();
-	Seven_btn = BF.Seven();
-	Eight_btn = BF.Eight();
-	Nine_btn = BF.Nine();
-	Zero_btn = BF.Zero();
-	Plus_btn = BF.Add();
-	Minus_btn = BF.Minus();
-	Mult_btn = BF.Multiply();
-	Div_btn = BF.Divide();
-	Clear_btn = BF.Clear();
-	Mod_btn = BF.Mod();
-	Bin_btn = BF.Binary();
-	Hex_btn = BF.Hex();
-	Dec_btn = BF.Decimal();
-	Equal_btn = BF.Equal();
-	Neg_btn = BF.Negative();
+	//row 1
+	Ones_btn = BF.Creation(this, 1, "1", 10, 140); //frame, id, label, x, y
+	Two_btn = BF.Creation(this, 2, "2", 60, 140);
+	Three_btn = BF.Creation(this, 3, "3", 110, 140);
+	Plus_btn = BF.Creation(this, 11, "+", 160, 140);
+
+	//row 2
+	Four_btn = BF.Creation(this, 4, "4", 10, 200);
+	Five_btn = BF.Creation(this, 5, "5", 60, 200);
+	Six_btn = BF.Creation(this, 6, "6", 110, 200);
+	Minus_btn = BF.Creation(this, 12, "-", 160, 200);
+
+	//row 3
+	Seven_btn = BF.Creation(this, 7, "7", 10, 260);
+	Eight_btn = BF.Creation(this, 8, "8", 60, 260);
+	Nine_btn = BF.Creation(this, 9, "9", 110, 260);
+	Mult_btn = BF.Creation(this, 12, "*", 160, 260);
+
+	//row 4
+	Neg_btn = BF.Creation(this, 14, "+/-", 10, 320);
+	Zero_btn = BF.Creation(this,0, "0", 60, 320);
+	Div_btn = BF.Creation(this, 16, "/", 110, 320);
+	Equal_btn = BF.Creation(this, 17,"=", 160, 320);
+
+	//row5
+	Mod_btn = BF.Creation(this, 18, "Mod", 10, 380);
+	Bin_btn = BF.Creation(this, 19, "Bin", 60, 380);
+	Hex_btn = BF.Creation(this, 20, "Hex", 110, 380);
+	Dec_btn = BF.Creation(this, 21, "Dec", 160, 380);
+
+	//clear bar
+	Clear_btn = BF.Clear(this);
 
 }
 
