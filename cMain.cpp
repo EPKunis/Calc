@@ -13,6 +13,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	//txt window
 	txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
 
+	//button factory obj
 	ButtonFactory BF = ButtonFactory();
 
 	//row 1
@@ -39,7 +40,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	Div_btn = BF.Creation(this, 16, "/", 110, 320);
 	Equal_btn = BF.Creation(this, 17,"=", 160, 320);
 
-	//row5
+	//row5 
 	Mod_btn = BF.Creation(this, 18, "Mod", 10, 380);
 	Bin_btn = BF.Creation(this, 19, "Bin", 60, 380);
 	Hex_btn = BF.Creation(this, 20, "Hex", 110, 380);
