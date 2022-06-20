@@ -1,10 +1,13 @@
 #include "cMain.h"
 #include "ButtonFactory.h"
+#include "CalculatorProcessor.h"
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
 
 EVT_BUTTON(wxID_ANY, OnButtonClicked)
 
 wxEND_EVENT_TABLE()
+
+
 
 //POINT messes with the position
 //SIZE messes w this size
@@ -36,9 +39,9 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 
 	//row 4
 	Neg_btn = BF.Creation(this, 14, "+/-", 10, 320);
-	Zero_btn = BF.Creation(this,0, "0", 60, 320);
+	Zero_btn = BF.Creation(this, 0, "0", 60, 320);
 	Div_btn = BF.Creation(this, 16, "/", 110, 320);
-	Equal_btn = BF.Creation(this, 17,"=", 160, 320);
+	Equal_btn = BF.Creation(this, 17, "=", 160, 320);
 
 	//row5 
 	Mod_btn = BF.Creation(this, 18, "Mod", 10, 380);
@@ -48,7 +51,6 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 
 	//clear bar
 	Clear_btn = BF.Clear(this);
-
 }
 
 cMain::~cMain()
@@ -58,6 +60,7 @@ cMain::~cMain()
 
 void cMain::OnButtonClicked(wxCommandEvent& evt)
 {
+	CalculatorProcessor* _processor = CalculatorProcessor::GetInstance();
 
 	std::string tmp = "";
 
@@ -72,6 +75,61 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 	{
 		tmp += tst->GetLabel();
 		txt->AppendText(tmp);
+		if (tst->GetLabel() == '=')
+		{
+
+		}
+		else
+		{
+			equation += tst->GetLabel();
+		}
+
+
+		//tmp = tst->GetLabel();
+		//std::string tttemp = (txt->GetLabelText()).ToStdString();
+		//std::string test5 = "";
+		//test5 = txt->GetLabel().ToStdString();
+
+		if (tst->GetLabel() == '=')
+		{
+			std::string print_ans = " ";
+			for (int i = 0; i < equation.size(); i++)
+			{
+				if (equation[i] == '+')
+				{
+					
+					double first = equation[0, i];
+					double second = equation[i + 1 , equation.size()];
+					first += second;
+
+					print_ans += std::to_string(first);
+					txt->AppendText(print_ans);
+				}
+			}
+		}
+
+		/*if (tst->GetLabel() == '=')
+		{
+			std::string equation_tmp1 = " ";/
+			double first = 0;
+			double second = 0;
+			double ans = 0;
+			for (int i = 0; i < equation.size(); i++)
+			{
+				if (equation[i] != '+')
+				{
+					equation_tmp1 += equation[i];
+					equation.erase(equation.begin());
+				}
+				first = equation_tmp1[i];
+
+			}
+		}*/
+
 	}
 
+	//have a processor
+	//if teh button is a sign add to a prcessor operation
+	//if equeal call calculate
+	//if binary call processor bin if hex call hex if decimal call decimal
 }
