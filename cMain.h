@@ -1,5 +1,6 @@
 #pragma once
 #include "wx/wx.h"
+#include "CalculatorProcessor.h"
 class cMain : public wxFrame
 {
 public:
@@ -33,6 +34,7 @@ public:
 	wxButton* Dec_btn = nullptr;
 	wxButton* Neg_btn = nullptr;
 
+	CalculatorProcessor* processor = nullptr;
 	void OnButtonClicked(wxCommandEvent& evt);
 
 	wxDECLARE_EVENT_TABLE();

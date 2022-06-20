@@ -18,6 +18,6 @@ wxButton* ButtonFactory::Creation(cMain* temp, int id, std::string label, int x,
 
 wxButton* ButtonFactory::Clear(cMain* temp)
 {
-	wxButton* tmp_btn = new wxButton(temp, 15, "Clear", wxPoint(10, 440), wxSize(200, 50));
+	wxButton* tmp_btn = new wxButton(temp, 20, "Clear", wxPoint(10, 440), wxSize(200, 50));
 	return tmp_btn;
 }
