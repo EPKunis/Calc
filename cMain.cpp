@@ -8,7 +8,6 @@ EVT_BUTTON(wxID_ANY, OnButtonClicked)
 wxEND_EVENT_TABLE()
 
 
-
 //POINT messes with the position
 //SIZE messes w this size
 cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(800, 600))
@@ -35,12 +34,12 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 	Seven_btn = BF.Creation(this, 7, "7", 10, 260);
 	Eight_btn = BF.Creation(this, 8, "8", 60, 260);
 	Nine_btn = BF.Creation(this, 9, "9", 110, 260);
-	Mult_btn = BF.Creation(this, 12, "*", 160, 260);
+	Mult_btn = BF.Creation(this, 13, "*", 160, 260);
 
 	//row 4
-	Neg_btn = BF.Creation(this, 14, "+/-", 10, 320);
+	Neg_btn = BF.Creation(this, 16, "+/-", 10, 320);
 	Zero_btn = BF.Creation(this, 0, "0", 60, 320);
-	Div_btn = BF.Creation(this, 16, "/", 110, 320);
+	Div_btn = BF.Creation(this, 14, "/", 110, 320);
 	Equal_btn = BF.Creation(this, 17, "=", 160, 320);
 
 	//row5 
@@ -62,74 +61,113 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 {
 	CalculatorProcessor* _processor = CalculatorProcessor::GetInstance();
 
-	std::string tmp = "";
+	wxButton* temp_button = dynamic_cast<wxButton*>(evt.GetEventObject());
 
-	wxButton* tst = dynamic_cast<wxButton*>(evt.GetEventObject());
+	int id = evt.GetId();
 
-	if (tst == Clear_btn)
+	//change to switch statment
+	if (id < 11) {
+		Equation += temp_button->GetLabel();
+		txt->AppendText(temp_button->GetLabel());
+	}
+	switch (id)
 	{
+
+		//add
+	case 11:
+
+		txt->AppendText("+");
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = "";
+		operation = '+';
+		break;
+
+		//sub
+	case 12:
+
+		txt->AppendText("-");
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = "";
+		operation = '-';
+		break;
+
+		//mult
+	case 13:
+		txt->AppendText("*");
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = "";
+		operation = '*';
+		break;
+
+		//div
+	case 14:
+		txt->AppendText("/");
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = "";
+		operation = '/';
+		break;
+
+		//clear
+	case 15:
 		txt->Clear();
+			_processor->SetBaseNumber(0);
+			Equation = "";
+
+		//neg
+	case 16:
+		
+
+		//equals
+	case 17:
+		if (operation == '+') {
+			_processor->Add(wxAtoi(Equation));
+		}
+		else if (operation == '-') {
+			_processor->Subtract(wxAtoi(Equation));
+		}
+		else if (operation == '*') {
+			_processor->Multiply(wxAtoi(Equation));
+		}
+		else if (operation == '/') {
+			_processor->Divide(wxAtoi(Equation));
+		}
+		else if (operation == '%') {
+			_processor->Modulus(wxAtoi(Equation));
+		}
+		operation = ' ';
+		txt->Clear();
+		txt->AppendText(_processor->GetDecimal());
+		break;
+
+		//mod
+	case 18:
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = "";
+		operation = '%';
+		break;
+
+		//bin
+	case 19:
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = _processor->GetBinary();
+		txt->Clear();
+		txt->AppendText(Equation);
+		break;
+
+		//hex
+	case 20:
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = _processor->GetHexadecimal();
+		txt->Clear();
+		txt->AppendText(Equation);
+		break;
+
+		//decimal
+	case 21:
+		_processor->SetBaseNumber(wxAtoi(Equation));
+		Equation = _processor->GetDecimal();
+		txt->Clear();
+		txt->AppendText(Equation);
+		break;
 	}
-
-	else
-	{
-		tmp += tst->GetLabel();
-		txt->AppendText(tmp);
-		if (tst->GetLabel() == '=')
-		{
-
-		}
-		else
-		{
-			equation += tst->GetLabel();
-		}
-
-
-		//tmp = tst->GetLabel();
-		//std::string tttemp = (txt->GetLabelText()).ToStdString();
-		//std::string test5 = "";
-		//test5 = txt->GetLabel().ToStdString();
-
-		if (tst->GetLabel() == '=')
-		{
-			std::string print_ans = " ";
-			for (int i = 0; i < equation.size(); i++)
-			{
-				if (equation[i] == '+')
-				{
-					
-					double first = equation[0, i];
-					double second = equation[i + 1 , equation.size()];
-					first += second;
-
-					print_ans += std::to_string(first);
-					txt->AppendText(print_ans);
-				}
-			}
-		}
-
-		/*if (tst->GetLabel() == '=')
-		{
-			std::string equation_tmp1 = " ";/
-			double first = 0;
-			double second = 0;
-			double ans = 0;
-			for (int i = 0; i < equation.size(); i++)
-			{
-				if (equation[i] != '+')
-				{
-					equation_tmp1 += equation[i];
-					equation.erase(equation.begin());
-				}
-				first = equation_tmp1[i];
-
-			}
-		}*/
-
-	}
-
-	//have a processor
-	//if teh button is a sign add to a prcessor operation
-	//if equeal call calculate
-	//if binary call processor bin if hex call hex if decimal call decimal
 }

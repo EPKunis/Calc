@@ -151,13 +151,11 @@
     <ClInclude Include="CalculatorProcessor.h" />
     <ClInclude Include="cCalc.h" />
     <ClInclude Include="cMain.h" />
-    <ClInclude Include="IBaseCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ButtonFactory.cpp" />
     <ClCompile Include="cCalc.cpp" />
     <ClCompile Include="cMain.cpp" />
-    <ClCompile Include="IBaseCommand.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

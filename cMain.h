@@ -32,7 +32,10 @@ public:
 	wxButton* Hex_btn = nullptr;
 	wxButton* Dec_btn = nullptr;
 	wxButton* Neg_btn = nullptr;
-	std::string equation = "";
+	
+	wxString Equation = " ";
+	char operation = ' ';
+	int num = 0;
 
 	void OnButtonClicked(wxCommandEvent& evt);
 
