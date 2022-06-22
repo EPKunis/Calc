@@ -1,5 +1,6 @@
 #pragma once
 #include "cMain.h"
+#include "IBaseCommand.h"
 #include <sstream>
 
 
@@ -63,7 +64,7 @@ public:
 			}
 			number = number / 16;
 		}
-		Hex += "0x";
+		Hex = "0x" + Hex;
 
 		return Hex;
 	}
@@ -90,7 +91,11 @@ public:
 	}
 
 	void Add(int  num) {
-		baseNum = baseNum + num;
+
+		AddCommand* add = new AddCommand(baseNum, num);
+		add->CalculateCommands();
+
+		//baseNum = baseNum + num;
 	}
 
 	void Subtract(int num) {
