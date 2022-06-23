@@ -8,7 +8,8 @@ public:
 
 public:
 
-	
+	std::vector<int> number; 
+
 	wxTextCtrl* txt = nullptr;
 
 	wxButton* Ones_btn = nullptr;
@@ -36,6 +37,10 @@ public:
 	wxString Equation = " ";
 	char operation = ' ';
 	int num = 0;
+
+	int Numbers = 0;
+
+	
 
 	void OnButtonClicked(wxCommandEvent& evt);
 

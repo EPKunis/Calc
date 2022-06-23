@@ -1,8 +1,7 @@
 #pragma once
 #include "cMain.h"
+#include<vector>
 #include "IBaseCommand.h"
-#include <sstream>
-
 
 class CalculatorProcessor
 {
@@ -11,6 +10,10 @@ class CalculatorProcessor
 private:
 	static CalculatorProcessor* _processor;
 	int baseNum;
+	int _second;
+
+	std::vector<IBaseCommand*> operarions;
+	std::vector<double> numbers;
 
 	CalculatorProcessor() {}
 
@@ -21,9 +24,17 @@ public:
 		}
 		return _processor;
 	}
-	void SetBaseNumber(int _num) {
-		baseNum = _num;
+
+
+
+	int SetBaseNumber(int _num) {
+
+			baseNum = _num;
+			return baseNum;
 	}
+
+
+
 
 	CalculatorProcessor(CalculatorProcessor& other) = delete;
 	void operator=(const CalculatorProcessor& other) = delete;
@@ -90,29 +101,34 @@ public:
 
 	}
 
-	void Add(int  num) {
+	double Add(int num) {
 
-		AddCommand* add = new AddCommand(baseNum, num);
-		add->CalculateCommands();
-
-		//baseNum = baseNum + num;
+		baseNum += num;
+		return baseNum;
 	}
 
-	void Subtract(int num) {
-		baseNum = baseNum - num;
+	double Subtract(int num) {
+		baseNum -= num;
+		return baseNum;
 	}
 
-	void Multiply(int num) {
-		baseNum = baseNum* num;
+	double Multiply(int num) {
+		baseNum = baseNum * num;
+		return baseNum;
 	}
 
-	void Divide(int num) {
+	double Divide(int num) {
 		baseNum = baseNum / num;
+		return baseNum;
 	}
 
-	void Modulus(int num) {
+	double Modulus(int num) {
 		baseNum = baseNum % num;
+		return baseNum;
 	}
+
 };
 
-CalculatorProcessor* CalculatorProcessor::_processor = nullptr;
+//CalculatorProcessor* CalculatorProcessor::_processor = nullptr;
+
+

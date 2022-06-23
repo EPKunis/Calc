@@ -1,6 +1,8 @@
 #include "cMain.h"
 #include "ButtonFactory.h"
 #include "CalculatorProcessor.h"
+#include "IBaseCommand.h"
+
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
 
 EVT_BUTTON(wxID_ANY, OnButtonClicked)
@@ -10,7 +12,7 @@ wxEND_EVENT_TABLE()
 
 //POINT messes with the position
 //SIZE messes w this size
-cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(800, 600))
+cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(235, 545))
 {
 	//txt window
 	txt = new wxTextCtrl(this, wxID_ANY, "", wxPoint(10, 10), wxSize(200, 100));
@@ -75,6 +77,7 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 
 		//add
 	case 11:
+		Numbers = wxAtoi(Equation);
 
 		txt->AppendText("+");
 		_processor->SetBaseNumber(wxAtoi(Equation));
@@ -122,15 +125,19 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 		if (operation == '+') {
 			_processor->Add(wxAtoi(Equation));
 		}
+
 		else if (operation == '-') {
 			_processor->Subtract(wxAtoi(Equation));
 		}
+
 		else if (operation == '*') {
 			_processor->Multiply(wxAtoi(Equation));
 		}
+
 		else if (operation == '/') {
 			_processor->Divide(wxAtoi(Equation));
 		}
+
 		else if (operation == '%') {
 			_processor->Modulus(wxAtoi(Equation));
 		}
@@ -143,7 +150,7 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 	case 18:
 		_processor->SetBaseNumber(wxAtoi(Equation));
 		Equation = "";
-		operation = '%';
+		operation = 'mod';
 		break;
 
 		//bin

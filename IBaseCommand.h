@@ -1,72 +1,48 @@
 #pragma once
+#include "CalculatorProcessor.h"
 
-
-class IBaseCommand
+ class IBaseCommand
 {
-	virtual double CalculateCommands() = 0;
+public:
+	virtual double CalculateCommands(int one, int two) = 0;
 };
 
 
 class AddCommand : public IBaseCommand
 {
-private:
-	double First;
-	double Second;
 public:
-	AddCommand(double _first, double _second) {
-		First = _first;
-		Second = _second;
-	}
-	double CalculateCommands() {
-		return First + Second;
+
+	double CalculateCommands(int one, int two) {
+		 one += two;
+		return one;
 	}
 };
 
 
 class SubCommand : public IBaseCommand
 {
-private:
-	double First;
-	double Second;
 public:
-	SubCommand(double _first, double _second) {
-		First = _first;
-		Second = _second;
-	}
-	double CalculateCommands() {
-		return First - Second;
+	double CalculateCommands(int one, int two) {
+		one -= two;
+		return one;
 	}
 };
 
 
 class MultCommand :public IBaseCommand
 {
-private:
-	double First;
-	double Second;
-public:
-	MultCommand(double _first, double _second) {
-		First = _first;
-		Second = _second;
-	}
-	double CalculateCommands(int first, int second) {
-		return First * Second;
+	double CalculateCommands(int one, int two) {
+		one *= two;
+		return one;
 	}
 };
 
 
 class DivCommand :public IBaseCommand
 {
-private:
-	double First;
-	double Second;
-public:
-	DivCommand(double _first, double _second) {
-		First = _first;
-		Second = _second;
-	}
-	double CalculateCommands() {
-		return First / Second;
+	double CalculateCommands(int one, int two) {
+		one /= two;
+		return one;
 	}
 };
 
