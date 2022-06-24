@@ -106,7 +106,7 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 		//div
 	case 14:
 		txt->AppendText("/");
-		_processor->SetBaseNumber(wxAtoi(Equation));
+		_processor->SetBaseNumber(wxAtoi(Equation)); 
 		Equation = "";
 		operation = '/';
 		break;
