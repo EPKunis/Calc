@@ -10,10 +10,6 @@ class CalculatorProcessor
 private:
 	static CalculatorProcessor* _processor;
 	int baseNum;
-	int _second;
-
-	std::vector<IBaseCommand*> operarions;
-	std::vector<double> numbers;
 
 	CalculatorProcessor() {}
 
@@ -32,8 +28,6 @@ public:
 			baseNum = _num;
 			return baseNum;
 	}
-
-
 
 
 	CalculatorProcessor(CalculatorProcessor& other) = delete;
@@ -129,6 +123,6 @@ public:
 
 };
 
-//CalculatorProcessor* CalculatorProcessor::_processor = nullptr;
+
 
 

@@ -1,7 +1,8 @@
 #include "cMain.h"
 #include "ButtonFactory.h"
 #include "CalculatorProcessor.h"
-#include "IBaseCommand.h"
+
+
 
 wxBEGIN_EVENT_TABLE(cMain, wxFrame)
 
@@ -62,7 +63,7 @@ cMain::~cMain()
 void cMain::OnButtonClicked(wxCommandEvent& evt)
 {
 	CalculatorProcessor* _processor = CalculatorProcessor::GetInstance();
-
+	
 	wxButton* temp_button = dynamic_cast<wxButton*>(evt.GetEventObject());
 
 	int id = evt.GetId();
@@ -115,26 +116,36 @@ void cMain::OnButtonClicked(wxCommandEvent& evt)
 		txt->Clear();
 			_processor->SetBaseNumber(0);
 			Equation = "";
+		
 
 		//neg
 	case 16:
-		
+		break;
 
 		//equals
 	case 17:
 		if (operation == '+') {
+			
+			/*AddCommand* add = new AddCommand();
+			add->CalculateCommands(_processor, wxAtoi(Equation));*/
 			_processor->Add(wxAtoi(Equation));
 		}
 
 		else if (operation == '-') {
+			/*SubCommand* sub = new AddCommand();
+			Sub->CalculateCommands(_processor, wxAtoi(Equation));*/
 			_processor->Subtract(wxAtoi(Equation));
 		}
 
 		else if (operation == '*') {
+			/*MultCommand* Mult = new AddCommand();
+			Mult->CalculateCommands(_processor, wxAtoi(Equation));*/
 			_processor->Multiply(wxAtoi(Equation));
 		}
 
 		else if (operation == '/') {
+			/*DivCommand* Div = new AddCommand();
+			Div->CalculateCommands(_processor, wxAtoi(Equation));*/
 			_processor->Divide(wxAtoi(Equation));
 		}
 
